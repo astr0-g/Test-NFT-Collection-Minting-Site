@@ -1,0 +1,12 @@
+@import url("https://fonts.googleapis.com/css2?family=Amatic+SC:wght@700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Ubuntu:wght@300&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Prompt:wght@300&display=swap");
+@tailwind base;
+@layer base {
+    svg {
+        display: inline;
+        vertical-align: baseline;
+    }
+}
+@tailwind components;
+@tailwind utilities;
