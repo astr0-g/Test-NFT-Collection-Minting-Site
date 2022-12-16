@@ -17,18 +17,19 @@ import {
     useNetwork,
     useWaitForTransaction,
 } from "wagmi"
+import ethers from "ethers"
 import { useToasts } from "react-toast-notifications"
 export default function Mintednumber(porps) {
     const [msupply, setMsupply] = useState("0")
     const [tsupply, setTsupply] = useState("0")
-    const { data: totalSupply } = useContractRead({
+    const { data: totalSupplydata } = useContractRead({
         addressOrName: porps.contractaddress,
         contractInterface: abiJson.abi,
         chains: porps.chainID,
         functionName: "totalSupply",
         watch: true,
     })
-    const { data: maxSupply } = useContractRead({
+    const { data: maxSupplydata } = useContractRead({
         addressOrName: porps.contractaddress,
         contractInterface: abiJson.abi,
         chains: porps.chainID,
@@ -36,19 +37,19 @@ export default function Mintednumber(porps) {
         watch: true,
     })
     useEffect(() => {
-        if (totalSupply) {
-            setTsupply(totalSupply.toString())
+        if (totalSupplydata) {
+            setTsupply(totalSupplydata.toString())
         }
-    }, [totalSupply])
+    }, [])
     useEffect(() => {
-        if (maxSupply) {
-            setMsupply(maxSupply.toString())
+        if (maxSupplydata) {
+            setMsupply(maxSupplydata.toString())
         }
-    }, [maxSupply])
+    }, [])
     return (
         <div>
-            <div className="">Minted {tsupply}</div>
-            <div className="">MaxSupply {msupply}</div>
+            <div className="text-white">Minted {tsupply}</div>
+            <div className="text-white">MaxSupply {msupply}</div>
         </div>
     )
 }

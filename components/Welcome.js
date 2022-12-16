@@ -47,9 +47,6 @@ export default function Welcome() {
 
                         <p className="my-5 text-slate-200 text-sm sm:text-xs w-[50vw] lg:w-11/12"></p>
                     </div>
-                </div>
-
-                <div>
                     <div className="grid items-center justify-items-center bg-no-repeat bg-cover bg-black  relative">
                         <div className="mt-8 flex items-center">
                             <h1 className=" lg:text-4xl sm:text-xl font-bold text-white text-center">
@@ -57,8 +54,8 @@ export default function Welcome() {
                             </h1>
                         </div>
                     </div>
+                    <Mintingcomponent />
                 </div>
-                <Mintingcomponent />
             </div>
         </div>
     )
