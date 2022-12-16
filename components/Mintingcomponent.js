@@ -26,15 +26,18 @@ export default function Mintingcomponent() {
     const [chainnow, setchainnow] = useState(5)
     const [json, setjson] = useState(collectionlistgoerli)
     const [Messagejson, setMessagejson] = useState("")
+    const { connect, connectors, error, isLoading, pendingConnector } = useConnect()
     useEffect(() => {
         pullJson()
     }, [])
     useEffect(() => {
-        if (chain) {
+        if (connect) {
             if (chain["id"] == 5) {
+                console.log(1)
                 setjson(collectionlistgoerli)
                 pullJson()
             } else if (chain["id"] == 80001) {
+                console.log(2)
                 setjson(collectionlistmumbai)
                 pullJson()
             }

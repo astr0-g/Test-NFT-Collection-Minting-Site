@@ -2,7 +2,6 @@ import "../styles/globals.css"
 import { WagmiConfig, configureChains, createClient, chain } from "wagmi"
 import { infuraProvider } from "wagmi/providers/infura"
 import { ToastProvider } from "react-toast-notifications"
-import { AppProps } from "next/app"
 import { alchemyProvider } from "wagmi/providers/alchemy"
 import {
     getDefaultWallets,
@@ -31,7 +30,7 @@ import Head from "next/head"
 const NEXT_PUBLIC_Application_ID = process.env.NEXT_PUBLIC_APP_ID
 const NEXT_PUBLIC_Dapp_URL = process.env.NEXT_PUBLIC_SERVER_URL
 const { chains, provider } = configureChains(
-    [/*chain.mainnet, chain.polygon,*/ chain.polygonMumbai, chain.goerli],
+    [/*chain.mainnet, chain.polygon,*/  chain.goerli,chain.polygonMumbai],
     [
         alchemyProvider({ apiKey: process.env.NEXT_PUBLIC_ALCHEMYAPIKEY1 }, { priority: 0 }),
         infuraProvider(process.env.NEXT_PUBLIC_INFURAAPIKEY1, { priority: 1 }),
