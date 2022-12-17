@@ -42,6 +42,7 @@ export default function Mintingcomponent() {
             // console.log(chain["id"])
             if (chain["id"] == 5) {
                 // console.log(1)
+                refreshPage() 
                 setjson(collectionlistgoerli)
                 setMessagejson("")
                 pullJson()
