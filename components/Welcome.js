@@ -20,6 +20,18 @@ export default function Welcome() {
     const { address } = useAccount()
     const { addToast } = useToasts()
     const { chain } = useNetwork()
+    const [chainnow, setchainnow] = useState("Goerli")
+    useEffect(() => {
+        if (chain) {
+            if (chain["id"] == 5) {
+                setchainnow(chain["name"])
+            }
+            if (chain["id"] == 80001) {
+                setchainnow(chain["name"])
+            }
+        }
+    }, [chain])
+
     function connectWalletNotification() {
         addToast("Please Connect Wallet & Choose Right Network Before Proceed!", {
             appearance: "warning",
@@ -50,7 +62,7 @@ export default function Welcome() {
                     <div className="grid items-center justify-items-center bg-no-repeat bg-cover  relative">
                         <div className="mt-8 flex items-center">
                             <h1 className=" lg:text-4xl sm:text-xl font-bold text-white text-center">
-                                MINT
+                                MINT TEST NFT on {chainnow}
                             </h1>
                         </div>
                     </div>

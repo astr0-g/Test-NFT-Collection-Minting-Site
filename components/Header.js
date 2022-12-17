@@ -9,7 +9,12 @@ export default function Header() {
                         TESTNET NFT MINT
                     </div>
                 </div>
-                <ConnectButton />
+                <ConnectButton
+                    accountStatus={{
+                        smallScreen: "none",
+                        largeScreen: "address",
+                    }}
+                />
             </nav>
         </div>
     )

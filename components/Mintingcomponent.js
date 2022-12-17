@@ -66,7 +66,7 @@ export default function Mintingcomponent() {
             console.log(msg.address)
             return (
                 <div key={msg.id} className="text-white font-Prompt">
-                    <div className="mt-6">{msg.name}</div>
+                    <div className="">{msg.name}</div>
                     <div className="flex justify-center items-center">
                         <img src={msg.pic} height="300" width="300"></img>
                     </div>
@@ -75,6 +75,7 @@ export default function Mintingcomponent() {
                         address={address}
                         contractaddress={msg.address}
                         chainid={msg.chain}
+                        symbol={msg.symbol}
                     />
                 </div>
             )

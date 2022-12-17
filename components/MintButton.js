@@ -18,7 +18,6 @@ import { ethers } from "ethers"
 import { useToasts } from "react-toast-notifications"
 import Mintednumber from "./Mintednumber"
 export default function MintButton(props) {
-    const [symbol, setsymbol] = useState("eth")
     const [price, setprice] = useState(0)
     const [value, setvalue] = useState(0)
     const [mintNum, setmintNum] = useState(0)
@@ -38,11 +37,7 @@ export default function MintButton(props) {
             setmintCountdata(mintCount.toNumber())
         }
     }, [mintCount])
-    useEffect(() => {
-        if (props.chainid == 80001) {
-            setsymbol("matic")
-        }
-    }, [mintCount])
+
     const { config } = usePrepareContractWrite({
         addressOrName: props.contractaddress,
         contractInterface: abiJson.abi,
@@ -121,7 +116,7 @@ export default function MintButton(props) {
                     <div className="">You Minted {mintCountdata} / Max Mint Count 2</div>
                     {mintNum > 0 && (
                         <div className="">
-                            You will pay {value} {symbol}
+                            You will pay {value} {props.symbol}
                         </div>
                     )}
                     <div className="mt-8  grid grid-cols-3 gap-5 items-center justify-center text-center">
