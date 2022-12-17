@@ -25,7 +25,7 @@ export default function Mintingcomponent() {
     const { chain, isSuccess } = useNetwork()
     const [chainnow, setchainnow] = useState("")
 
-    const [json, setjson] = useState(collectionlistmumbai)
+    const [json, setjson] = useState(collectionlistgoerli)
     const [messagejson, setMessagejson] = useState("")
     const { connector: activeConnector, isConnected } = useAccount()
     useEffect(() => {
