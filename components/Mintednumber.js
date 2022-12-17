@@ -39,12 +39,12 @@ export default function Mintednumber(props) {
         if (totalSupplydata) {
             setTsupply(totalSupplydata.toString())
         }
-    }, [])
+    }, [totalSupplydata])
     useEffect(() => {
         if (maxSupplydata) {
             setMsupply(maxSupplydata.toString())
         }
-    }, [])
+    }, [maxSupplydata])
     return (
         <div>
             <div className="">
