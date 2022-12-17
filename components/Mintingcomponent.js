@@ -76,7 +76,7 @@ export default function Mintingcomponent() {
                 </div>
             )
         })
-        setMessagejson(displayData)
+        await setMessagejson(displayData)
     }
     function connectWalletNotification() {
         addToast("Please Connect Wallet & Choose Right Network Before Proceed!", {
