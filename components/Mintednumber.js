@@ -24,14 +24,14 @@ export default function Mintednumber(props) {
     const { data: totalSupplydata } = useContractRead({
         addressOrName: props.contractaddress,
         contractInterface: abiJson.abi,
-        chains: props.chainID,
+        chains: props.chainid,
         functionName: "totalSupply",
         watch: true,
     })
     const { data: maxSupplydata } = useContractRead({
         addressOrName: props.contractaddress,
         contractInterface: abiJson.abi,
-        chains: props.chainID,
+        chains: props.chainid,
         functionName: "maxSupply",
         watch: true,
     })
