@@ -5,7 +5,7 @@ export default function Header() {
         <div>
             <nav className={styles.navBar}>
                 <div className="flex items-center ">
-                    <div className="text-white font-bold font-Prompt text-2xl">
+                    <div className="text-white font-bold font-Prompt lg:text-2xl sm:text-lg">
                         TESTNET NFT MINT
                     </div>
                 </div>

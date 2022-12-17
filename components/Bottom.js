@@ -9,7 +9,7 @@ export default function Bottom() {
                 <div className="text-white text-xs">
                     <div>No Copy Right Reserved</div>
                     <div className="mt-3"></div>
-                    <div className="text-center lg:grid lg:grid-cols-3 gap-10  ">
+                    <div className="text-center lg:grid lg:grid-cols-1 gap-10  ">
                         <div>
                             <a
                                 href={

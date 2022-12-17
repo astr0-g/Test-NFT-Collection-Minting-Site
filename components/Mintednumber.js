@@ -1,5 +1,4 @@
 import styles from "../styles/Home.module.css"
-import logo from "../public/logo.png"
 import { useState, useEffect } from "react"
 // import { ConnectButton } from "@rainbow-me/rainbowkit";
 import Bottom from "./Bottom"

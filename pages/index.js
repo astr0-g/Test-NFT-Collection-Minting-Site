@@ -10,9 +10,9 @@ export default function Home() {
     return (
         <div>
             <Head>
-                <title>Signet</title>
+                <title>Testnet Minting Site</title>
                 <meta name="description" content="2" />
-                <link rel="icon" href="/logo.ico" />
+                <link rel="icon" href="/favicon.ico" />
             </Head>
             <Header />
             <Welcome />
