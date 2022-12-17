@@ -30,7 +30,7 @@ import Head from "next/head"
 const NEXT_PUBLIC_Application_ID = process.env.NEXT_PUBLIC_APP_ID
 const NEXT_PUBLIC_Dapp_URL = process.env.NEXT_PUBLIC_SERVER_URL
 const { chains, provider } = configureChains(
-    [/*chain.mainnet,*/ chain.polygon，chain.goerli],
+    [/* ，chain.goerli chain.mainnet,*/ chain.polygonmumbai],
     [
         alchemyProvider({ apiKey: process.env.NEXT_PUBLIC_ALCHEMYAPIKEY1 }, { priority: 0 }),
         infuraProvider(process.env.NEXT_PUBLIC_INFURAAPIKEY1, { priority: 1 }),
