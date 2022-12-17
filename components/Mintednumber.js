@@ -35,13 +35,13 @@ export default function Mintednumber(props) {
     })
     useEffect(() => {
         if (totalSupplydata) {
-            console.log(totalSupplydata.toString())
+            // console.log(totalSupplydata.toString())
             setTsupply(totalSupplydata.toString())
         }
     }, [totalSupplydata])
     useEffect(() => {
         if (maxSupplydata) {
-            console.log(maxSupplydata.toString())
+            // console.log(maxSupplydata.toString())
             setMsupply(maxSupplydata.toString())
         }
     }, [maxSupplydata])

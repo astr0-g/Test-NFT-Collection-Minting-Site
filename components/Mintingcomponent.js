@@ -36,11 +36,11 @@ export default function Mintingcomponent() {
         if (chain) {
             if (chain["id"] == 5) {
                 pullJson(collectionlistgoerli)
-                console.log(1)
+                // console.log(1)
             }
             if (chain["id"] == 80001) {
                 pullJson(collectionlistmumbai)
-                console.log(2)
+                // console.log(2)
             }
         }
     }, [chain])
@@ -49,21 +49,21 @@ export default function Mintingcomponent() {
             setchainnow(chain["id"])
             if (chain["id"] == 5) {
                 pullJson(collectionlistgoerli)
-                console.log(1)
+                // console.log(1)
             }
             if (chain["id"] == 80001) {
                 pullJson(collectionlistmumbai)
-                console.log(2)
+                // console.log(2)
             }
         }
     }, [chain])
-    console.log(switchNetwork)
+    // console.log(switchNetwork)
     useEffect(() => {}, [])
     let displayData
     async function pullJson(e) {
         // console.log("pull")
         displayData = await e.map(function (msg) {
-            console.log(msg.address)
+            // console.log(msg.address)
             return (
                 <div key={msg.id} className="text-white font-Prompt">
                     <div className="">{msg.name}</div>
