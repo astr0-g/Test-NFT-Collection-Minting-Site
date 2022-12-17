@@ -19,20 +19,20 @@ import {
 } from "wagmi"
 import ethers from "ethers"
 import { useToasts } from "react-toast-notifications"
-export default function Mintednumber(porps) {
-    const [msupply, setMsupply] = useState("0")
+export default function Mintednumber(props) {
+    const [msupply, setMsupply] = useState("10000")
     const [tsupply, setTsupply] = useState("0")
     const { data: totalSupplydata } = useContractRead({
-        addressOrName: porps.contractaddress,
+        addressOrName: props.contractaddress,
         contractInterface: abiJson.abi,
-        chains: porps.chainID,
+        chains: props.chainID,
         functionName: "totalSupply",
         watch: true,
     })
     const { data: maxSupplydata } = useContractRead({
-        addressOrName: porps.contractaddress,
+        addressOrName: props.contractaddress,
         contractInterface: abiJson.abi,
-        chains: porps.chainID,
+        chains: props.chainID,
         functionName: "maxSupply",
         watch: true,
     })
@@ -48,8 +48,9 @@ export default function Mintednumber(porps) {
     }, [])
     return (
         <div>
-            <div className="text-white">Minted {tsupply}</div>
-            <div className="text-white">MaxSupply {msupply}</div>
+            <div className="">
+                Minted {tsupply} / MaxSupply {msupply}
+            </div>
         </div>
     )
 }

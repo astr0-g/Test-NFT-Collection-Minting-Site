@@ -5,6 +5,7 @@ import { useState, useEffect } from "react"
 import Bottom from "./Bottom"
 import Link from "next"
 import Mintednumber from "./Mintednumber"
+import MintButton from "./MintButton"
 import { collectionlistmumbai } from "../constants/nft"
 import { collectionlistgoerli } from "../constants/nft"
 import abi from "../constants/abi.json"
@@ -22,38 +23,56 @@ import { useToasts } from "react-toast-notifications"
 export default function Mintingcomponent() {
     const { address } = useAccount()
     const { addToast } = useToasts()
-    const { chain } = useNetwork()
-    const [chainnow, setchainnow] = useState(5)
+    const { chain, isSuccess } = useNetwork()
+    const [chainnow, setchainnow] = useState("")
+
     const [json, setjson] = useState(collectionlistgoerli)
     const [Messagejson, setMessagejson] = useState("")
-    const { connect, connectors, error, isLoading, pendingConnector } = useConnect()
+    const { connector: activeConnector, isConnected } = useAccount()
     useEffect(() => {
-        pullJson()
+        if (json == collectionlistgoerli) {
+            pullJson()
+        }
+        if (json == collectionlistmumbai) {
+            pullJson()
+        }
     }, [])
     useEffect(() => {
-        if (connect) {
+        if (chain) {
+            setchainnow(chain["id"])
+            console.log(chain["id"])
             if (chain["id"] == 5) {
                 console.log(1)
                 setjson(collectionlistgoerli)
+                setMessagejson("")
                 pullJson()
-            } else if (chain["id"] == 80001) {
+            }
+            if (chain["id"] == 80001) {
                 console.log(2)
                 setjson(collectionlistmumbai)
+                setMessagejson("")
                 pullJson()
             }
         }
-    }, [])
+    }, [chain])
+    useEffect(() => {}, [])
     let displayData
     async function pullJson() {
+        console.log("pull")
         displayData = json.map(function (msg) {
             console.log(msg)
             return (
-                <div key={msg.name} className="overflow-hidden">
+                <div key={msg.name} className="text-white font-Prompt">
                     <div>{msg.name}</div>
                     <div className="flex justify-center items-center">
                         <img src={msg.pic} height="300" width="300"></img>
                     </div>
                     <Mintednumber contractaddress={msg.address} chainid={msg.chain} />
+                    <MintButton
+                        address={address}
+                        contractaddress={msg.address}
+                        chainid={msg.chain}
+                    />
                 </div>
             )
         })
