@@ -39,15 +39,15 @@ export default function Mintingcomponent() {
     useEffect(() => {
         if (chain) {
             setchainnow(chain["id"])
-            console.log(chain["id"])
+            // console.log(chain["id"])
             if (chain["id"] == 5) {
-                console.log(1)
+                // console.log(1)
                 setjson(collectionlistgoerli)
                 setMessagejson("")
                 pullJson()
             }
             if (chain["id"] == 80001) {
-                console.log(2)
+                // console.log(2)
                 setjson(collectionlistmumbai)
                 setMessagejson("")
                 pullJson()
@@ -57,12 +57,12 @@ export default function Mintingcomponent() {
     useEffect(() => {}, [])
     let displayData
     async function pullJson() {
-        console.log("pull")
+        // console.log("pull")
         displayData = json.map(function (msg) {
-            console.log(msg)
+            // console.log(msg)
             return (
                 <div key={msg.name} className="text-white font-Prompt">
-                    <div>{msg.name}</div>
+                    <div className="mt-6">{msg.name}</div>
                     <div className="flex justify-center items-center">
                         <img src={msg.pic} height="300" width="300"></img>
                     </div>
@@ -87,7 +87,7 @@ export default function Mintingcomponent() {
     }
     return (
         <div>
-            <div className="mt-8  lg:grid lg:grid-cols-2 lg:gap-40 items-center justify-center text-center">
+            <div className="mt-8 grid 2xl:grid-cols-3 xl:grid-cols-2 lg:grid-cols-2 md:grid-cols-2 sm:grid-cols-1 gap-40 items-center justify-center text-center">
                 {Messagejson}
             </div>
         </div>
