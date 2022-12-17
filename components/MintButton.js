@@ -3,8 +3,6 @@ import { useState, useEffect } from "react"
 // import { ConnectButton } from "@rainbow-me/rainbowkit";
 import Bottom from "./Bottom"
 import Link from "next"
-import { collectionlistmumbai } from "../constants/nft"
-import { collectionlistgoerli } from "../constants/nft"
 import abiJson from "../constants/abi.json"
 import {
     usePrepareContractWrite,
@@ -20,7 +18,9 @@ import { ethers } from "ethers"
 import { useToasts } from "react-toast-notifications"
 import Mintednumber from "./Mintednumber"
 export default function MintButton(props) {
+    const [symbol, setsymbol] = useState("eth")
     const [price, setprice] = useState(0)
+    const [value, setvalue] = useState(0)
     const [mintNum, setmintNum] = useState(0)
     const [mintCountdata, setmintCountdata] = useState(0)
     const { addToast } = useToasts()
@@ -36,6 +36,11 @@ export default function MintButton(props) {
     useEffect(() => {
         if (mintCount) {
             setmintCountdata(mintCount.toNumber())
+        }
+    }, [mintCount])
+    useEffect(() => {
+        if (props.chainid == 80001) {
+            setsymbol("matic")
         }
     }, [mintCount])
     const { config } = usePrepareContractWrite({
@@ -88,6 +93,10 @@ export default function MintButton(props) {
         }
     }
     function decrease() {
+        // if (mintNum == 1) {
+        //     setmintNum(mintNum - 1)
+        //     setvalue(0)
+        // }
         if (mintNum > 0) {
             setmintNum(mintNum - 1)
             setprice(ethers.utils.parseEther("0.01"))
@@ -97,9 +106,11 @@ export default function MintButton(props) {
         if (mintNum) {
             if (mintNum == 1) {
                 setprice(ethers.utils.parseEther("0.01"))
+                setvalue("0.01")
             }
             if (mintNum == 2) {
                 setprice(ethers.utils.parseEther("0.02"))
+                setvalue("0.02")
             }
         }
     }, [mintNum])
@@ -108,6 +119,11 @@ export default function MintButton(props) {
             {address && (
                 <div>
                     <div className="">You Minted {mintCountdata} / Max Mint Count 2</div>
+                    {mintNum > 0 && (
+                        <div className="">
+                            You will pay {value} {symbol}
+                        </div>
+                    )}
                     <div className="mt-8  grid grid-cols-3 gap-5 items-center justify-center text-center">
                         <button className={styles.mintButton} onClick={decrease}>
                             -
@@ -125,6 +141,7 @@ export default function MintButton(props) {
             {!address && (
                 <div>
                     <div className="">You Minted ? / Max Mint Count 2</div>
+
                     <div className="mt-8  grid grid-cols-3 gap-5 items-center justify-center text-center">
                         <button className={styles.mintButton} onClick={connectwalletnotice}>
                             -

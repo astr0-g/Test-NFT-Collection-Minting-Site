@@ -3,8 +3,6 @@ import { useState, useEffect } from "react"
 // import { ConnectButton } from "@rainbow-me/rainbowkit";
 import Bottom from "./Bottom"
 import Link from "next"
-import { collectionlistmumbai } from "../constants/nft"
-import { collectionlistgoerli } from "../constants/nft"
 import abiJson from "../constants/abi.json"
 import {
     usePrepareContractWrite,

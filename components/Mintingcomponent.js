@@ -5,8 +5,8 @@ import Bottom from "./Bottom"
 import Link from "next"
 import Mintednumber from "./Mintednumber"
 import MintButton from "./MintButton"
-import { collectionlistmumbai } from "../constants/nft"
-import { collectionlistgoerli } from "../constants/nft"
+import { collectionlistmumbai } from "../constants/nftcollectionlistmumbai"
+import { collectionlistgoerli } from "../constants/nftcollectionlistgoerli"
 import abi from "../constants/abi.json"
 import {
     usePrepareContractWrite,
@@ -16,6 +16,7 @@ import {
     useContractRead,
     useContractWrite,
     useNetwork,
+    useSwitchNetwork,
     useWaitForTransaction,
 } from "wagmi"
 import { useToasts } from "react-toast-notifications"
@@ -24,45 +25,47 @@ export default function Mintingcomponent() {
     const { addToast } = useToasts()
     const { chain, isSuccess } = useNetwork()
     const [chainnow, setchainnow] = useState("")
-
-    const [json, setjson] = useState(collectionlistgoerli)
+    const [json, setjson] = useState()
     const [messagejson, setMessagejson] = useState("")
     const { connector: activeConnector, isConnected } = useAccount()
+    const { chains, error, isLoading, pendingChainId, switchNetwork } = useSwitchNetwork()
     useEffect(() => {
-        if (json == collectionlistgoerli) {
-            pullJson()
-        }
-        if (json == collectionlistmumbai) {
-            pullJson()
-        }
+        pullJson(collectionlistgoerli)
     }, [])
     useEffect(() => {
         if (chain) {
-            setchainnow(chain["id"])
-            // console.log(chain["id"])
             if (chain["id"] == 5) {
-                // console.log(1)
-                
-                setjson(collectionlistgoerli)
-                setMessagejson("")
-                pullJson()
+                pullJson(collectionlistgoerli)
+                console.log(1)
             }
             if (chain["id"] == 80001) {
-                // console.log(2)
-                setjson(collectionlistmumbai)
-                setMessagejson("")
-                pullJson()
+                pullJson(collectionlistmumbai)
+                console.log(2)
             }
         }
     }, [chain])
+    useEffect(() => {
+        if (switchNetwork) {
+            setchainnow(chain["id"])
+            if (chain["id"] == 5) {
+                pullJson(collectionlistgoerli)
+                console.log(1)
+            }
+            if (chain["id"] == 80001) {
+                pullJson(collectionlistmumbai)
+                console.log(2)
+            }
+        }
+    }, [chain])
+    console.log(switchNetwork)
     useEffect(() => {}, [])
     let displayData
-    async function pullJson() {
+    async function pullJson(e) {
         // console.log("pull")
-        displayData = await json.map(function (msg) {
-            // console.log(msg)
+        displayData = await e.map(function (msg) {
+            console.log(msg.address)
             return (
-                <div key={msg.name} className="text-white font-Prompt">
+                <div key={msg.id} className="text-white font-Prompt">
                     <div className="mt-6">{msg.name}</div>
                     <div className="flex justify-center items-center">
                         <img src={msg.pic} height="300" width="300"></img>
@@ -76,7 +79,7 @@ export default function Mintingcomponent() {
                 </div>
             )
         })
-        await setMessagejson(displayData)
+        setMessagejson(displayData)
     }
     function connectWalletNotification() {
         addToast("Please Connect Wallet & Choose Right Network Before Proceed!", {
