@@ -26,7 +26,7 @@ export default function Mintingcomponent() {
     const [chainnow, setchainnow] = useState("")
 
     const [json, setjson] = useState(collectionlistgoerli)
-    const [Messagejson, setMessagejson] = useState("")
+    const [messagejson, setMessagejson] = useState("")
     const { connector: activeConnector, isConnected } = useAccount()
     useEffect(() => {
         if (json == collectionlistgoerli) {
@@ -59,7 +59,7 @@ export default function Mintingcomponent() {
     let displayData
     async function pullJson() {
         // console.log("pull")
-        displayData = json.map(function (msg) {
+        displayData = await json.map(function (msg) {
             // console.log(msg)
             return (
                 <div key={msg.name} className="text-white font-Prompt">
@@ -89,7 +89,7 @@ export default function Mintingcomponent() {
     return (
         <div>
             <div className="mt-8 grid 2xl:grid-cols-3 xl:grid-cols-2 lg:grid-cols-2 md:grid-cols-2 sm:grid-cols-1 gap-40 items-center justify-center text-center">
-                {Messagejson}
+                {messagejson}
             </div>
         </div>
     )
