@@ -1,7 +1,7 @@
+
+# Test-NFT-Collection-Minting-Site
 ## installation 
    
    ```yarn```   
-```rainbow install```   
-```yarn dev```
 
-# Test-NFT-Collection-Minting-Site
+```yarn dev```
