@@ -76,6 +76,7 @@ export default function Mintingcomponent() {
                         contractaddress={msg.address}
                         chainid={msg.chain}
                         symbol={msg.symbol}
+                        scan={msg.scan}
                     />
                 </div>
             )

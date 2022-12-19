@@ -131,6 +131,9 @@ export default function MintButton(props) {
                     <button className={styles.mintButton} onClick={mint}>
                         mint
                     </button>
+                    <a href={`${props.scan}${props.contractaddress}`}>
+                        <button className={styles.mintButton}>view on etherscan</button>
+                    </a>
                 </div>
             )}
             {!address && (
@@ -149,6 +152,9 @@ export default function MintButton(props) {
                     <button className={styles.mintButton} onClick={connectwalletnotice}>
                         mint
                     </button>
+                    <a href={`${props.scan}${props.contractaddress}`}>
+                        <button className={styles.mintButton}>view on etherscan</button>
+                    </a>
                 </div>
             )}
         </div>
