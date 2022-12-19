@@ -12,7 +12,7 @@ export default function Home() {
             <Head>
                 <title>Testnet Minting Site</title>
                 <meta name="description" content="2" />
-                <link rel="icon" href="/favicon.ico" />
+                <link rel="icon" href="/Cjdowner-Cryptocurrency-Flat-Ethereum-ETH.ico" />
             </Head>
             <Header />
             <Welcome />
