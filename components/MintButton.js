@@ -88,10 +88,6 @@ export default function MintButton(props) {
         }
     }
     function decrease() {
-        // if (mintNum == 1) {
-        //     setmintNum(mintNum - 1)
-        //     setvalue(0)
-        // }
         if (mintNum > 0) {
             setmintNum(mintNum - 1)
             setprice(ethers.utils.parseEther("0.01"))

@@ -15,7 +15,6 @@ import {
     useWaitForTransaction,
 } from "wagmi"
 import { useToasts } from "react-toast-notifications"
-//https://cdn.discordapp.com/attachments/960590776570626098/1039674954213490828/martix.gif
 export default function Welcome() {
     const { address } = useAccount()
     const { addToast } = useToasts()
@@ -40,7 +39,7 @@ export default function Welcome() {
     return (
         <div className="">
             <div>
-                <div className="grid items-center justify-items-center bg-cover bg-black bf-center bg-[url('')] relative">
+                <div className="grid items-center justify-items-center bg-cover bg-black relative">
                     <div className="mt-8 grid items-center justify-items-center text-center opacity-100 ">
                         <h1 className="mt-5 font-Prompt lg:text-8xl md:text-6xl sm:text-4xl font-bold text-white">
                             DISCLAIMER
