@@ -3,7 +3,7 @@ export const collectionlistgoerli = [
         id: 1,
         chain: 5,
         symbol: "eth",
-        name: "azuki",
+        name: "Azuki",
         address: "0x10b8b56d53bfa5e374f38e6c0830bad4ebee33e6",
         pic: "https://i.seadn.io/gae/H8jOCJuQokNqGBpkBN5wk1oZwO7LM8bNnrHCaekV2nKjnCqw6UB5oaH8XyNeBDj6bA_n1mjejzhFQUP3O1NfjFLHr3FOaeHcTOOT?auto=format&w=1920",
         scan: "https://goerli.etherscan.io/address/",

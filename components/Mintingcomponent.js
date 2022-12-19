@@ -69,18 +69,20 @@ export default function Mintingcomponent() {
                     key={msg.id}
                     className="text-white font-Prompt border-2 border-white rounded-2xl outline outline-2 outline-offset-4"
                 >
-                    <div className="">{msg.name}</div>
-                    <div className="flex justify-center items-center">
-                        <img src={msg.pic} height="300" width="300"></img>
+                    <div className="ml-4 mr-4 mt-4 mb-4">
+                        <div>{msg.name}</div>
+                        <div className="flex justify-center items-center">
+                            <img src={msg.pic} height="300" width="300"></img>
+                        </div>
+                        <Mintednumber contractaddress={msg.address} chainid={msg.chain} />
+                        <MintButton
+                            address={address}
+                            contractaddress={msg.address}
+                            chainid={msg.chain}
+                            symbol={msg.symbol}
+                            scan={msg.scan}
+                        />
                     </div>
-                    <Mintednumber contractaddress={msg.address} chainid={msg.chain} />
-                    <MintButton
-                        address={address}
-                        contractaddress={msg.address}
-                        chainid={msg.chain}
-                        symbol={msg.symbol}
-                        scan={msg.scan}
-                    />
                 </div>
             )
         })

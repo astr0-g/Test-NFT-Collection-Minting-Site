@@ -3,7 +3,7 @@ export const collectionlistmumbai = [
         id: 1,
         chain: 80001,
         symbol: "matic",
-        name: "azuki",
+        name: "Azuki",
         address: "0x10B8b56D53bFA5e374f38e6C0830BAd4ebeE33E6",
         pic: "https://i.seadn.io/gae/H8jOCJuQokNqGBpkBN5wk1oZwO7LM8bNnrHCaekV2nKjnCqw6UB5oaH8XyNeBDj6bA_n1mjejzhFQUP3O1NfjFLHr3FOaeHcTOOT?auto=format&w=1920",
         scan: "https://mumbai.polygonscan.com/address/",

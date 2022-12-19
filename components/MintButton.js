@@ -75,6 +75,9 @@ export default function MintButton(props) {
     function connectwalletnotice() {
         addToast("Please connect wallet", { appearance: "error" })
     }
+    function zeromintnum() {
+        addToast("Mint number could not be 0", { appearance: "error" })
+    }
     function increase() {
         if (mintNum + 1 < 3) {
             if (mintNum >= 2 - mintCountdata) {
@@ -110,11 +113,7 @@ export default function MintButton(props) {
             {address && (
                 <div>
                     <div className="">You Minted {mintCountdata} / Max Mint Count 2</div>
-                    {mintNum > 0 && (
-                        <div className="">
-                            You will pay {value} {props.symbol}
-                        </div>
-                    )}
+
                     <div className="mt-8  grid grid-cols-3 gap-5 items-center justify-center text-center">
                         <button className={styles.mintButton} onClick={decrease}>
                             -
@@ -124,11 +123,19 @@ export default function MintButton(props) {
                             +
                         </button>
                     </div>
-                    <button className={styles.mintButton} onClick={mint}>
-                        mint
-                    </button>
+                    <div className="mt-2" />
+                    {mintNum == 0 ? (
+                        <button className={styles.mintButton} onClick={zeromintnum}>
+                            mint
+                        </button>
+                    ) : (
+                        <button className={styles.mintButton} onClick={mint}>
+                            You will pay {value} {props.symbol} to mint
+                        </button>
+                    )}
+                    <div className="mt-2" />
                     <a href={`${props.scan}${props.contractaddress}`}>
-                        <button className={styles.mintButton}>view on etherscan</button>
+                        <button className="">view on etherscan</button>
                     </a>
                 </div>
             )}
@@ -145,11 +152,13 @@ export default function MintButton(props) {
                             +
                         </button>
                     </div>
+                    <div className="mt-2" />
                     <button className={styles.mintButton} onClick={connectwalletnotice}>
                         mint
                     </button>
+                    <div className="mt-2" />
                     <a href={`${props.scan}${props.contractaddress}`}>
-                        <button className={styles.mintButton}>view on etherscan</button>
+                        <button className="">view on etherscan</button>
                     </a>
                 </div>
             )}
