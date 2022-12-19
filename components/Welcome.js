@@ -37,7 +37,7 @@ export default function Welcome() {
         })
     }
     return (
-        <div className="">
+        <div className="scroll-smooth">
             <div>
                 <div className="grid items-center justify-items-center bg-cover bg-black relative">
                     <div className="mt-8 grid items-center justify-items-center text-center opacity-100 ">
