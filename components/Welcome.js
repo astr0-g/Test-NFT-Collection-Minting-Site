@@ -19,6 +19,7 @@ export default function Welcome() {
     const { address } = useAccount()
     const { addToast } = useToasts()
     const { chain } = useNetwork()
+
     const [chainnow, setchainnow] = useState("Goerli")
     useEffect(() => {
         if (chain) {

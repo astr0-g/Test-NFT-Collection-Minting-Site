@@ -3,11 +3,14 @@ import { useState, useEffect } from "react"
 // import { ConnectButton } from "@rainbow-me/rainbowkit";
 import Bottom from "./Bottom"
 import Link from "next"
-import Mintednumber from "./Mintednumber"
-import MintButton from "./MintButton"
-import { collectionlistmumbai } from "../constants/nftcollectionlistmumbai"
-import { collectionlistgoerli } from "../constants/nftcollectionlistgoerli"
-import abi from "../constants/abi.json"
+import ERC721Mintednumber from "./ERC721Mintednumber"
+import ERC721MintButton from "./ERC721MintButton"
+import ERC1155Mintednumber from "./ERC1155Mintednumber"
+import ERC1155MintButton from "./ERC1155MintButton"
+import { erc721mumbai } from "../constants/erc721mumbai"
+import { erc721goerli } from "../constants/erc721goerli"
+import { erc1155goerli } from "../constants/erc1155goerli"
+import { erc1155mumbai } from "../constants/erc1155mumbai"
 import {
     usePrepareContractWrite,
     useAccount,
@@ -24,23 +27,37 @@ export default function Mintingcomponent() {
     const { address } = useAccount()
     const { addToast } = useToasts()
     const { chain, isSuccess } = useNetwork()
+    const [collectiontype, setcollectiontype] = useState(1)
     const [chainnow, setchainnow] = useState("")
     const [json, setjson] = useState()
     const [messagejson, setMessagejson] = useState("")
     const { connector: activeConnector, isConnected } = useAccount()
     const { chains, error, isLoading, pendingChainId, switchNetwork } = useSwitchNetwork()
     useEffect(() => {
-        pullJson(collectionlistgoerli)
+        if (collectiontype == 1) {
+            pullerc721Json(erc721goerli)
+        }
+        if (collectiontype == 2) {
+            pullerc1155Json(erc1155goerli)
+        }
     }, [])
     useEffect(() => {
         if (chain) {
             if (chain["id"] == 5) {
-                pullJson(collectionlistgoerli)
-                // console.log(1)
+                if (collectiontype == 1) {
+                    pullerc721Json(erc721goerli)
+                }
+                if (collectiontype == 2) {
+                    pullerc1155Json(erc1155goerli)
+                }
             }
             if (chain["id"] == 80001) {
-                pullJson(collectionlistmumbai)
-                // console.log(2)
+                if (collectiontype == 1) {
+                    pullerc721Json(erc721mumbai)
+                }
+                if (collectiontype == 2) {
+                    pullerc1155Json(erc1155mumbai)
+                }
             }
         }
     }, [chain])
@@ -48,22 +65,29 @@ export default function Mintingcomponent() {
         if (switchNetwork) {
             setchainnow(chain["id"])
             if (chain["id"] == 5) {
-                pullJson(collectionlistgoerli)
+                if (collectiontype == 1) {
+                    pullerc721Json(erc721goerli)
+                }
+                if (collectiontype == 2) {
+                    pullerc1155Json(erc1155goerli)
+                }
                 // console.log(1)
             }
             if (chain["id"] == 80001) {
-                pullJson(collectionlistmumbai)
-                // console.log(2)
+                if (collectiontype == 1) {
+                    pullerc721Json(erc721mumbai)
+                }
+                if (collectiontype == 2) {
+                    pullerc1155Json(erc1155mumbai)
+                }
             }
         }
     }, [chain])
     // console.log(switchNetwork)
     useEffect(() => {}, [])
     let displayData
-    async function pullJson(e) {
-        // console.log("pull")
+    async function pullerc1155Json(e) {
         displayData = await e.map(function (msg) {
-            // console.log(msg.address)
             return (
                 <div
                     key={msg.id}
@@ -74,8 +98,34 @@ export default function Mintingcomponent() {
                         <div className="flex justify-center items-center">
                             <img src={msg.pic} height="300" width="300"></img>
                         </div>
-                        <Mintednumber contractaddress={msg.address} chainid={msg.chain} />
-                        <MintButton
+                        <ERC1155Mintednumber contractaddress={msg.address} chainid={msg.chain} />
+                        <ERC1155MintButton
+                            address={address}
+                            contractaddress={msg.address}
+                            chainid={msg.chain}
+                            symbol={msg.symbol}
+                            scan={msg.scan}
+                        />
+                    </div>
+                </div>
+            )
+        })
+        setMessagejson(displayData)
+    }
+    async function pullerc721Json(e) {
+        displayData = await e.map(function (msg) {
+            return (
+                <div
+                    key={msg.id}
+                    className="text-white font-Prompt border-2 border-white rounded-2xl outline outline-2 outline-offset-4"
+                >
+                    <div className="ml-4 mr-4 mt-4 mb-4">
+                        <div>{msg.name}</div>
+                        <div className="flex justify-center items-center">
+                            <img src={msg.pic} height="300" width="300"></img>
+                        </div>
+                        <ERC721Mintednumber contractaddress={msg.address} chainid={msg.chain} />
+                        <ERC721MintButton
                             address={address}
                             contractaddress={msg.address}
                             chainid={msg.chain}
@@ -96,11 +146,48 @@ export default function Mintingcomponent() {
     function refreshPage() {
         window.location.reload(false)
     }
+    function viewerc1155() {
+        setcollectiontype(2)
+        if (chain) {
+            if (chain["id"] == 5) {
+                pullerc1155Json(erc1155goerli)
+            }
+            if (chain["id"] == 80001) {
+                pullerc1155Json(erc1155mumbai)
+            }
+        } else {
+            pullerc1155Json(erc1155goerli)
+        }
+    }
+    function viewerc721() {
+        setcollectiontype(1)
+        if (chain) {
+            if (chain["id"] == 5) {
+                pullerc721Json(erc721goerli)
+            }
+            if (chain["id"] == 80001) {
+                pullerc721Json(erc721mumbai)
+            }
+        } else {
+            pullerc721Json(erc721goerli)
+        }
+    }
     return (
         <div>
+            <div className="mt-14 mr-4 ml-4 grid lg:gap-80 gap-10 grid-cols-2">
+                <button className={styles.collectionButton} onClick={viewerc721}>
+                    ERC721 collection
+                </button>
+                <button className={styles.collectionButton} onClick={viewerc1155}>
+                    ERC1155 collection
+                </button>
+            </div>
             <div className="mt-8 grid 2xl:grid-cols-3 xl:grid-cols-2 lg:grid-cols-2 md:grid-cols-2 sm:grid-cols-1 gap-40 items-center justify-center text-center">
                 {messagejson}
             </div>
+            {collectiontype == 2 && (
+                <div className="h-[40vh] top-1 right-0 rounded-md overflow-hidden opacity-100 z-[1500]"></div>
+            )}
         </div>
     )
 }

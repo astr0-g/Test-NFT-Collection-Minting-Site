@@ -3,7 +3,7 @@ import { useState, useEffect } from "react"
 // import { ConnectButton } from "@rainbow-me/rainbowkit";
 import Bottom from "./Bottom"
 import Link from "next"
-import abiJson from "../constants/abi.json"
+import abiJson from "../constants/erc721abi.json"
 import {
     usePrepareContractWrite,
     useAccount,
@@ -16,8 +16,8 @@ import {
 } from "wagmi"
 import { ethers } from "ethers"
 import { useToasts } from "react-toast-notifications"
-import Mintednumber from "./Mintednumber"
-export default function MintButton(props) {
+import Mintednumber from "./ERC721Mintednumber"
+export default function ERC721MintButton(props) {
     const [price, setprice] = useState(0)
     const [value, setvalue] = useState(0)
     const [mintNum, setmintNum] = useState(0)

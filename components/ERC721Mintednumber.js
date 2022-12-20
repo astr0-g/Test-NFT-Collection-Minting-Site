@@ -3,7 +3,7 @@ import { useState, useEffect } from "react"
 // import { ConnectButton } from "@rainbow-me/rainbowkit";
 import Bottom from "./Bottom"
 import Link from "next"
-import abiJson from "../constants/abi.json"
+import abiJson from "../constants/erc721abi.json"
 import {
     usePrepareContractWrite,
     useAccount,
@@ -16,7 +16,7 @@ import {
 } from "wagmi"
 import ethers from "ethers"
 import { useToasts } from "react-toast-notifications"
-export default function Mintednumber(props) {
+export default function ERC721Mintednumber(props) {
     const [msupply, setMsupply] = useState("10000")
     const [tsupply, setTsupply] = useState("0")
     const { data: totalSupplydata } = useContractRead({

@@ -7,8 +7,10 @@ export default function Bottom() {
         <>
             <div className=" grid items-center justify-items-center bg-no-repeat bg-cover bg-black  border-black relative">
                 <div className="text-white text-xs">
+                    
                     <div>No Copy Right Reserved</div>
                     <div className="mt-3"></div>
+
                     <div className="text-center lg:grid lg:grid-cols-1 gap-10  ">
                         <div>
                             <a
@@ -81,7 +83,6 @@ export default function Bottom() {
                         </div> */}
                     </div>
                     <div className="mb-3"></div>
-                    <div className="h-[54vh] absolute top-1 right-0 rounded-md overflow-hidden opacity-100 z-[1500]"></div>
                 </div>
             </div>
         </>
