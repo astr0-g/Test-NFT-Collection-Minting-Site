@@ -91,7 +91,7 @@ export default function Mintingcomponent() {
             return (
                 <div
                     key={msg.id}
-                    className="text-white font-Prompt border-2 border-white rounded-2xl outline outline-2 outline-offset-4"
+                    className="ml-4 mr-4 mt-4 mb-4 text-white font-Prompt border-2 border-white rounded-2xl outline outline-2 outline-offset-4"
                 >
                     <div className="ml-4 mr-4 mt-4 mb-4">
                         <div>{msg.name}</div>
@@ -117,7 +117,7 @@ export default function Mintingcomponent() {
             return (
                 <div
                     key={msg.id}
-                    className="text-white font-Prompt border-2 border-white rounded-2xl outline outline-2 outline-offset-4"
+                    className="ml-4 mr-4 mt-4 mb-4 text-white font-Prompt border-2 border-white rounded-2xl outline outline-2 outline-offset-4"
                 >
                     <div className="ml-4 mr-4 mt-4 mb-4">
                         <div>{msg.name}</div>
@@ -174,16 +174,18 @@ export default function Mintingcomponent() {
     }
     return (
         <div>
-            <div className="mt-14 mr-4 ml-4 grid lg:gap-80 gap-10 grid-cols-2">
-                <button className={styles.collectionButton} onClick={viewerc721}>
-                    ERC721 collection
-                </button>
-                <button className={styles.collectionButton} onClick={viewerc1155}>
-                    ERC1155 collection
-                </button>
-            </div>
-            <div className="mt-8 grid 2xl:grid-cols-3 xl:grid-cols-2 lg:grid-cols-2 md:grid-cols-2 sm:grid-cols-1 gap-40 items-center justify-center text-center">
-                {messagejson}
+            <div>
+                <div className="mt-14 mr-4 ml-4 grid lg:gap-0 gap-0 grid-cols-2">
+                    <button className="border-white border-2 text-white" onClick={viewerc721}>
+                        ERC721 collection
+                    </button>
+                    <button className="border-white border-2 text-white" onClick={viewerc1155}>
+                        ERC1155 collection
+                    </button>
+                </div>
+                <div className="mt-8 grid 2xl:grid-cols-3 xl:grid-cols-2 lg:grid-cols-2 md:grid-cols-2 sm:grid-cols-1 gap-40 items-center justify-center text-center">
+                    {messagejson}
+                </div>
             </div>
             {collectiontype == 2 && (
                 <div className="h-[40vh] top-1 right-0 rounded-md overflow-hidden opacity-100 z-[1500]"></div>

@@ -114,7 +114,7 @@ export default function ERC721MintButton(props) {
                 <div>
                     <div className="">You Minted {mintCountdata} / Max Mint Count 2</div>
 
-                    <div className="mt-8  grid grid-cols-3 gap-5 items-center justify-center text-center">
+                    <div className="mt-8 grid grid-cols-3 gap-5 items-center justify-center text-center">
                         <button className={styles.mintButton} onClick={decrease}>
                             -
                         </button>

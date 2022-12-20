@@ -61,7 +61,7 @@ export default function Welcome() {
                     </div>
                     <div className="grid items-center justify-items-center bg-no-repeat bg-cover  relative">
                         <div className="mt-8 flex items-center">
-                            <h1 className=" lg:text-4xl sm:text-xl font-bold text-white text-center">
+                            <h1 className="lg:text-4xl sm:text-xl font-bold text-white text-center">
                                 MINT TEST NFT on {chainnow}
                             </h1>
                         </div>

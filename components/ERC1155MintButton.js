@@ -86,7 +86,7 @@ export default function ERC1155MintButton(props) {
                     <div className="mt-2" />
                     {mintCountdata != 2 ? (
                         <button className={styles.mintButton} onClick={mint}>
-                            You will pay 0.01 {props.symbol} to mint 1 NFT
+                            You will pay 0.01 {props.symbol} to mint one
                         </button>
                     ) : (
                         <button className={styles.mintButton} onClick={mxmintnum}>
