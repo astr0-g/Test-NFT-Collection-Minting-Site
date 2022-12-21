@@ -105,6 +105,7 @@ export default function Mintingcomponent() {
                             chainid={msg.chain}
                             symbol={msg.symbol}
                             scan={msg.scan}
+                            opensea={msg.opensea}
                         />
                     </div>
                 </div>
@@ -131,6 +132,7 @@ export default function Mintingcomponent() {
                             chainid={msg.chain}
                             symbol={msg.symbol}
                             scan={msg.scan}
+                            opensea={msg.opensea}
                         />
                     </div>
                 </div>

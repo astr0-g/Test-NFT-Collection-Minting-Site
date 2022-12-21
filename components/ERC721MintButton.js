@@ -1,4 +1,5 @@
 import styles from "../styles/Home.module.css"
+import Image from "next/image"
 import { useState, useEffect } from "react"
 // import { ConnectButton } from "@rainbow-me/rainbowkit";
 import Bottom from "./Bottom"
@@ -133,10 +134,28 @@ export default function ERC721MintButton(props) {
                             You will pay {value} {props.symbol} to mint
                         </button>
                     )}
-                    <div className="mt-2" />
-                    <a href={`${props.scan}${props.contractaddress}`}>
-                        <button className="">view on etherscan</button>
-                    </a>
+                    <div className="mt-4 grid grid-cols-2 gap-30">
+                        <a href={`${props.scan}${props.contractaddress}`}>
+                            <button className="">
+                                <Image
+                                    src="/etherscan.png"
+                                    width="30"
+                                    height="30"
+                                    title="view on etherscan"
+                                ></Image>
+                            </button>
+                        </a>
+                        <a href={`https://testnets.opensea.io/collection/${props.opensea}`}>
+                            <button className="">
+                                <Image
+                                    src="/opensea.png"
+                                    width="30"
+                                    height="30"
+                                    title="view on opensea"
+                                ></Image>
+                            </button>
+                        </a>
+                    </div>
                 </div>
             )}
             {!address && (
@@ -156,10 +175,28 @@ export default function ERC721MintButton(props) {
                     <button className={styles.mintButton} onClick={connectwalletnotice}>
                         mint
                     </button>
-                    <div className="mt-2" />
-                    <a href={`${props.scan}${props.contractaddress}`}>
-                        <button className="">view on etherscan</button>
-                    </a>
+                    <div className="mt-4 grid grid-cols-2 gap-30">
+                        <a href={`${props.scan}${props.contractaddress}`}>
+                            <button className="">
+                                <Image
+                                    src="/etherscan.png"
+                                    width="30"
+                                    height="30"
+                                    title="view on etherscan"
+                                ></Image>
+                            </button>
+                        </a>
+                        <a href={`https://testnets.opensea.io/collection/${props.opensea}`}>
+                            <button className="">
+                                <Image
+                                    src="/opensea.png"
+                                    width="30"
+                                    height="30"
+                                    title="view on opensea"
+                                ></Image>
+                            </button>
+                        </a>
+                    </div>
                 </div>
             )}
         </div>
