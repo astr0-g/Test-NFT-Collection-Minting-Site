@@ -126,17 +126,6 @@ export default function ERC1155MintButton(props) {
                         mint
                     </button>
 
-                    <a href={`${props.scan}${props.contractaddress}`}>
-                        <button className="">
-                            <Image
-                                src="/etherscan.png"
-                                width="30"
-                                height="30"
-                                title="view on etherscan"
-                            ></Image>
-                        </button>
-                    </a>
-
                     <div className="mt-4 grid grid-cols-2 gap-30">
                         <a href={`${props.scan}${props.contractaddress}`}>
                             <button className="">
