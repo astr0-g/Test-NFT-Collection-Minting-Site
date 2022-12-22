@@ -37,7 +37,7 @@ export const erc721goerli = [
         address: "0xdb6F6f88b32793349CA121421777a7615c4B8848",
         pic: "https://i.seadn.io/gae/7B0qai02OdHA8P_EOVK672qUliyjQdQDGNrACxs7WnTgZAkJa_wWURnIFKeOh5VTf8cfTqW3wQpozGedaC9mteKphEOtztls02RlWQ?auto=format&w=1920",
         scan: "https://goerli.etherscan.io/address/",
-        opensea: "doodlegoerli",
+        opensea: "doodlesgoerli",
     },
     {
         id: 5,
