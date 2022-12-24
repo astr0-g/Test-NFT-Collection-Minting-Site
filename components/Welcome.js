@@ -1,19 +1,9 @@
 import styles from "../styles/Home.module.css"
 import Mintingcomponent from "./Mintingcomponent"
 import { useState, useEffect } from "react"
-// import { ConnectButton } from "@rainbow-me/rainbowkit";
 import Bottom from "./Bottom"
 import Link from "next"
-import {
-    usePrepareContractWrite,
-    useAccount,
-    useConnect,
-    useContract,
-    useContractRead,
-    useContractWrite,
-    useNetwork,
-    useWaitForTransaction,
-} from "wagmi"
+import { useAccount, useNetwork } from "wagmi"
 import { useToasts } from "react-toast-notifications"
 export default function Welcome() {
     const { address } = useAccount()
