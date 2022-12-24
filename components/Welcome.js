@@ -22,11 +22,6 @@ export default function Welcome() {
         }
     }, [chain])
 
-    function connectWalletNotification() {
-        addToast("Please Connect Wallet & Choose Right Network Before Proceed!", {
-            appearance: "warning",
-        })
-    }
     return (
         <div className="scroll-smooth">
             <div>
