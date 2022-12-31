@@ -1,6 +1,6 @@
 
 # Test-NFT-Collection-Minting-Site
-## installation 
+## installations 
    
    ```yarn```   
 
