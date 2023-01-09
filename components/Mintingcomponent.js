@@ -9,6 +9,7 @@ import ERC1155Mintednumber from "./ERC1155Mintednumber"
 import ERC1155MintButton from "./ERC1155MintButton"
 import ERC4907MintButton from "./ERC4907MintButton"
 import ERC4907Mintednumber from "./ERC4907Mintednumber"
+import ERC4907setUserButton from "./ERC4907setUserButton"
 import { erc721mumbai } from "../constants/erc721mumbai"
 import { erc721goerli } from "../constants/erc721goerli"
 import { erc1155goerli } from "../constants/erc1155goerli"
@@ -152,6 +153,11 @@ export default function Mintingcomponent() {
                             symbol={msg.symbol}
                             scan={msg.scan}
                             opensea={msg.opensea}
+                        />
+                        <ERC4907setUserButton
+                            address={address}
+                            contractaddress={msg.address}
+                            chainid={msg.chain}
                         />
                     </div>
                 </div>
