@@ -12,7 +12,7 @@ export default function Bottom() {
                     <div className="mt-3"></div>
 
                     <div className="text-center lg:grid lg:grid-cols-1 gap-10  ">
-                        {/*  <div>
+                          <div>
                             <a
                                 href={
                                     "https://github.com/Astr0-G/Test-NFT-Collection-Minting-Site"
@@ -33,7 +33,7 @@ export default function Bottom() {
                                 </button>
                             </a>
                         </div>
-                        <div>
+                        {/*<div>
                             <a href={"https://t.me/"}>
                                 <button>
                                     <svg
