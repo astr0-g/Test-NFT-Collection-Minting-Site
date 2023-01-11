@@ -1,8 +1,4 @@
-import styles from "../styles/Home.module.css"
 import { useState, useEffect } from "react"
-// import { ConnectButton } from "@rainbow-me/rainbowkit";
-import Bottom from "./Bottom"
-import Link from "next"
 import ERC721Mintednumber from "./ERC721Mintednumber"
 import ERC721MintButton from "./ERC721MintButton"
 import ERC1155Mintednumber from "./ERC1155Mintednumber"
@@ -17,27 +13,19 @@ import { erc1155mumbai } from "../constants/erc1155mumbai"
 import { erc4907goerli } from "../constants/erc4907goerli"
 import { erc4907mumbai } from "../constants/erc4907mumbai"
 import {
-    usePrepareContractWrite,
     useAccount,
-    useConnect,
-    useContract,
-    useContractRead,
-    useContractWrite,
     useNetwork,
     useSwitchNetwork,
-    useWaitForTransaction,
 } from "wagmi"
 import { useToasts } from "react-toast-notifications"
 export default function Mintingcomponent() {
     const { address } = useAccount()
     const { addToast } = useToasts()
-    const { chain, isSuccess } = useNetwork()
+    const { chain} = useNetwork()
     const [collectiontype, setcollectiontype] = useState(1)
     const [chainnow, setchainnow] = useState("")
-    const [json, setjson] = useState()
     const [messagejson, setMessagejson] = useState("")
-    const { connector: activeConnector, isConnected } = useAccount()
-    const { chains, error, isLoading, pendingChainId, switchNetwork } = useSwitchNetwork()
+    const {switchNetwork } = useSwitchNetwork()
     useEffect(() => {
         if (collectiontype == 1) {
             pullerc721Json(erc721goerli)
@@ -103,7 +91,6 @@ export default function Mintingcomponent() {
             }
         }
     }, [chain])
-    // console.log(switchNetwork)
     useEffect(() => {}, [])
     let displayData
     async function pullerc1155Json(e) {

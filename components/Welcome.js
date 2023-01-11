@@ -1,13 +1,9 @@
-import styles from "../styles/Home.module.css"
 import Mintingcomponent from "./Mintingcomponent"
 import { useState, useEffect } from "react"
-import Bottom from "./Bottom"
-import Link from "next"
-import { useAccount, useNetwork } from "wagmi"
-import { useToasts } from "react-toast-notifications"
+import {useNetwork } from "wagmi"
+
 export default function Welcome() {
-    const { address } = useAccount()
-    const { addToast } = useToasts()
+
     const { chain } = useNetwork()
 
     const [chainnow, setchainnow] = useState("Goerli")

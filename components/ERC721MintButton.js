@@ -1,23 +1,16 @@
 import styles from "../styles/Home.module.css"
 import Image from "next/image"
 import { useState, useEffect } from "react"
-// import { ConnectButton } from "@rainbow-me/rainbowkit";
-import Bottom from "./Bottom"
-import Link from "next"
 import abiJson from "../constants/erc721abi.json"
 import {
     usePrepareContractWrite,
     useAccount,
-    useConnect,
-    useContract,
     useContractRead,
     useContractWrite,
-    useNetwork,
     useWaitForTransaction,
 } from "wagmi"
 import { ethers } from "ethers"
 import { useToasts } from "react-toast-notifications"
-import Mintednumber from "./ERC721Mintednumber"
 export default function ERC721MintButton(props) {
     const [price, setprice] = useState(0)
     const [value, setvalue] = useState(0)

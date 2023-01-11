@@ -3,17 +3,11 @@ import { WagmiConfig, configureChains, createClient, chain } from "wagmi"
 import { infuraProvider } from "wagmi/providers/infura"
 import { ToastProvider } from "react-toast-notifications"
 import { alchemyProvider } from "wagmi/providers/alchemy"
-import {
-    getDefaultWallets,
-    RainbowKitProvider,
-    darkTheme,
-    lightTheme,
-} from "@rainbow-me/rainbowkit"
+import { RainbowKitProvider, darkTheme } from "@rainbow-me/rainbowkit"
 import "@rainbow-me/rainbowkit/styles.css"
 import { connectorsForWallets } from "@rainbow-me/rainbowkit"
 import { publicProvider } from "wagmi/providers/public"
 import {
-    injectedWallet,
     argentWallet,
     braveWallet,
     coinbaseWallet,
@@ -22,15 +16,11 @@ import {
     imTokenWallet,
     omniWallet,
     metaMaskWallet,
-    rainbowWallet,
     walletConnectWallet,
 } from "@rainbow-me/rainbowkit/wallets"
-import Head from "next/head"
 
-const NEXT_PUBLIC_Application_ID = process.env.NEXT_PUBLIC_APP_ID
-const NEXT_PUBLIC_Dapp_URL = process.env.NEXT_PUBLIC_SERVER_URL
 const { chains, provider } = configureChains(
-    [/* ，chain.mainnet,*/ chain.goerli, chain.polygonMumbai],
+    [chain.goerli, chain.polygonMumbai],
     [
         alchemyProvider({ apiKey: process.env.NEXT_PUBLIC_ALCHEMYAPIKEY1 }, { priority: 0 }),
         infuraProvider(process.env.NEXT_PUBLIC_INFURAAPIKEY1, { priority: 1 }),
@@ -39,10 +29,7 @@ const { chains, provider } = configureChains(
         publicProvider({ priority: 4 }),
     ]
 )
-// const { connectors } = getDefaultWallets({
-//     appName: "My app",
-//     chains,
-// })
+
 const connectors = connectorsForWallets([
     {
         groupName: "Recommended",
@@ -74,8 +61,6 @@ function MyApp({ Component, pageProps }) {
     return (
         <div>
             <WagmiConfig client={WagmiClient}>
-                {/* <SessionProvider refetchInterval={0} session={pageProps.session}>
-                        <RainbowKitSiweNextAuthProvider> */}
                 <RainbowKitProvider
                     chains={chains}
                     theme={darkTheme({
@@ -89,8 +74,6 @@ function MyApp({ Component, pageProps }) {
                         <Component {...pageProps} name="Access-Control-Allow-Origin" value="*" />
                     </ToastProvider>
                 </RainbowKitProvider>
-                {/* </RainbowKitSiweNextAuthProvider>
-                    </SessionProvider> */}
             </WagmiConfig>
         </div>
     )

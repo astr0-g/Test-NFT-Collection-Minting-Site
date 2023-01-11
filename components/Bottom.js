@@ -1,39 +1,29 @@
-import styles from "../styles/Home.module.css"
-import { ConnectButton } from "@rainbow-me/rainbowkit"
-// import { Route } from "react-router-dom";
-
 export default function Bottom() {
     return (
-        <>
-            <div className=" grid items-center justify-items-center bg-no-repeat bg-cover bg-black  border-black relative">
-                <div className="text-white text-xs">
-                    
-                    <div>No Copy Right Reserved</div>
-                    <div className="mt-3"></div>
+        <div className=" grid items-center justify-items-center bg-no-repeat bg-cover bg-black  border-black relative">
+            <div className="text-white text-xs">
+                <div>No Copy Right Reserved</div>
+                <div className="mt-3"></div>
 
-                    <div className="text-center lg:grid lg:grid-cols-1 gap-10  ">
-                          <div>
-                            <a
-                                href={
-                                    "https://github.com/Astr0-G/Test-NFT-Collection-Minting-Site"
-                                }
-                            >
-                                <button>
-                                    <svg
-                                        width="24"
-                                        height="24"
-                                        viewBox="0 0 24 24"
-                                        xmlns="http://www.w3.org/2000/svg"
-                                    >
-                                        <path
-                                            fill="#ffffff"
-                                            d="M11.999 1C5.926 1 1 5.925 1 12c0 4.86 3.152 8.983 7.523 10.437.55.102.75-.238.75-.53 0-.26-.009-.952-.014-1.87-3.06.664-3.706-1.475-3.706-1.475-.5-1.27-1.221-1.61-1.221-1.61-.999-.681.075-.668.075-.668 1.105.078 1.685 1.134 1.685 1.134.981 1.68 2.575 1.195 3.202.914.1-.71.384-1.195.698-1.47-2.442-.278-5.01-1.222-5.01-5.437 0-1.2.428-2.183 1.132-2.952-.114-.278-.491-1.397.108-2.91 0 0 .923-.297 3.025 1.127A10.536 10.536 0 0 1 12 6.32a10.49 10.49 0 0 1 2.754.37c2.1-1.424 3.022-1.128 3.022-1.128.6 1.514.223 2.633.11 2.911.705.769 1.13 1.751 1.13 2.952 0 4.226-2.572 5.156-5.022 5.428.395.34.747 1.01.747 2.037 0 1.47-.014 2.657-.014 3.017 0 .295.199.637.756.53C19.851 20.979 23 16.859 23 12c0-6.075-4.926-11-11.001-11"
-                                        />
-                                    </svg>
-                                </button>
-                            </a>
-                        </div>
-                        {/*<div>
+                <div className="text-center lg:grid lg:grid-cols-1 gap-10  ">
+                    <div>
+                        <a href={"https://github.com/Astr0-G/Test-NFT-Collection-Minting-Site"}>
+                            <button>
+                                <svg
+                                    width="24"
+                                    height="24"
+                                    viewBox="0 0 24 24"
+                                    xmlns="http://www.w3.org/2000/svg"
+                                >
+                                    <path
+                                        fill="#ffffff"
+                                        d="M11.999 1C5.926 1 1 5.925 1 12c0 4.86 3.152 8.983 7.523 10.437.55.102.75-.238.75-.53 0-.26-.009-.952-.014-1.87-3.06.664-3.706-1.475-3.706-1.475-.5-1.27-1.221-1.61-1.221-1.61-.999-.681.075-.668.075-.668 1.105.078 1.685 1.134 1.685 1.134.981 1.68 2.575 1.195 3.202.914.1-.71.384-1.195.698-1.47-2.442-.278-5.01-1.222-5.01-5.437 0-1.2.428-2.183 1.132-2.952-.114-.278-.491-1.397.108-2.91 0 0 .923-.297 3.025 1.127A10.536 10.536 0 0 1 12 6.32a10.49 10.49 0 0 1 2.754.37c2.1-1.424 3.022-1.128 3.022-1.128.6 1.514.223 2.633.11 2.911.705.769 1.13 1.751 1.13 2.952 0 4.226-2.572 5.156-5.022 5.428.395.34.747 1.01.747 2.037 0 1.47-.014 2.657-.014 3.017 0 .295.199.637.756.53C19.851 20.979 23 16.859 23 12c0-6.075-4.926-11-11.001-11"
+                                    />
+                                </svg>
+                            </button>
+                        </a>
+                    </div>
+                    {/*<div>
                             <a href={"https://t.me/"}>
                                 <button>
                                     <svg
@@ -81,10 +71,9 @@ export default function Bottom() {
                                 </button>
                             </a>
                         </div> */}
-                    </div>
-                    <div className="mb-3"></div>
                 </div>
+                <div className="mb-3"></div>
             </div>
-        </>
+        </div>
     )
 }
