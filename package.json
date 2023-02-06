@@ -8,10 +8,7 @@
         "build": "next build",
         "start": "next start",
         "lint": "next lint",
-        "rainbow install": "yarn add @rainbow-me/rainbowkit wagmi ethers",
-        "moralis:sync": "npx moralis-admin-cli connect-local-devchain --chain hardhat --moralisSubdomain utmnigjl06yg.usemoralis.com --frpcPath ./frp/frpc.exe",
-        "moralis:cloudfunctions --devchain": "moralis-admin-cli watch-cloud-folder --moralisApiKey BzSCw6W35ZnBqwb --moralisApiSecret vO2A32XDSIgfVgS --moralisSubdomain utmnigjl06yg.usemoralis.com --autoSave 1 --moralisCloudfolder ./CloudFunctions/",
-        "moralis:cloudfunctions": "moralis-admin-cli watch-cloud-folder --moralisApiKey BzSCw6W35ZnBqwb --moralisApiSecret vO2A32XDSIgfVgS --moralisSubdomain cfvkglbodanj.usemoralis.com --autoSave 1 --moralisCloudfolder ./CloudFunctions/"
+        "rainbow install": "yarn add @rainbow-me/rainbowkit wagmi ethers"
     },
     "dependencies": {
         "@heroicons/react": "1.0.6",
