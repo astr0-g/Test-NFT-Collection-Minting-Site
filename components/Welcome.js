@@ -1,9 +1,9 @@
 import Mintingcomponent from "./Mintingcomponent"
+import Partnerscomponent from "./Partnerscomponent"
 import { useState, useEffect } from "react"
-import {useNetwork } from "wagmi"
+import { useNetwork } from "wagmi"
 
 export default function Welcome() {
-
     const { chain } = useNetwork()
 
     const [chainnow, setchainnow] = useState("Goerli")
@@ -48,6 +48,14 @@ export default function Welcome() {
                         </div>
                     </div>
                     <Mintingcomponent />
+                    <div className="grid items-center justify-items-center bg-no-repeat bg-cover mt-8 relative">
+                        <div className="mt-8 flex items-center">
+                            <h1 className="lg:text-4xl sm:text-xl font-bold text-white text-center">
+                                PARTNERS
+                            </h1>
+                        </div>
+                    </div>
+                    <Partnerscomponent />
                     <p className="mb-10"></p>
                 </div>
             </div>

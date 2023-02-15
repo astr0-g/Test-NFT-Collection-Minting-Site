@@ -244,9 +244,9 @@ export default function Mintingcomponent() {
                     {messagejson}
                 </div>
             </div>
-            {collectiontype == 2 && (
+            {/* {collectiontype == 2 && (
                 <div className="h-[40vh] top-1 right-0 rounded-md overflow-hidden opacity-100 z-[1500]"></div>
-            )}
+            )} */}
         </div>
     )
 }
