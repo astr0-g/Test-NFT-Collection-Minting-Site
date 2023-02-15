@@ -27,4 +27,4 @@ Partner section is for showing off application of testnet application building, 
 To add a partner for your own site, there are 2 ways:
 
 1. dm me on twitter
-2. fork this site and go to partnerslist.js in the constants folder and add your application infos and make a pull request, and I will review the infos and accept.
+2. fork this repository and go to [partnerslist.js](https://github.com/Astr0-G/Test-NFT-Collection-Minting-Site/blob/main/constants/partnerslist.js) in the `constants` folder and add your application infos and make a pull request, and I will review the infos and accept.
