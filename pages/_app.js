@@ -50,7 +50,9 @@ const { chains, provider } = configureChains(
         infuraProvider({ apiKey: process.env.NEXT_PUBLIC_INFURAAPIKEY9, priority: 0 }),
         infuraProvider({ apiKey: process.env.NEXT_PUBLIC_INFURAAPIKEY10, priority: 0 }),
         infuraProvider({ apiKey: process.env.NEXT_PUBLIC_INFURAAPIKEY11, priority: 0 }),
-    ]
+    ],
+    { pollingInterval: 90_000, targetQuorum: 1 },
+    { stallTimeout: 1000 }
 )
 
 const connectors = connectorsForWallets([
