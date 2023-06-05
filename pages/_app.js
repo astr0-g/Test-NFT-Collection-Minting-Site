@@ -7,6 +7,7 @@ import { RainbowKitProvider, darkTheme } from "@rainbow-me/rainbowkit"
 import "@rainbow-me/rainbowkit/styles.css"
 import { connectorsForWallets } from "@rainbow-me/rainbowkit"
 import { publicProvider } from "wagmi/providers/public"
+import { NotificationProvider } from "grand-notification"
 import {
     argentWallet,
     braveWallet,
@@ -95,9 +96,9 @@ function MyApp({ Component, pageProps }) {
                         fontStack: "system",
                     })}
                 >
-                    <ToastProvider autoDismiss={true} autoDismissTimeout="4000">
+                    <NotificationProvider>
                         <Component {...pageProps} name="Access-Control-Allow-Origin" value="*" />
-                    </ToastProvider>
+                    </NotificationProvider>
                 </RainbowKitProvider>
             </WagmiConfig>
         </div>

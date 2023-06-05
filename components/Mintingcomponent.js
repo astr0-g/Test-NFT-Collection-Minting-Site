@@ -12,20 +12,16 @@ import { erc1155goerli } from "../constants/erc1155goerli"
 import { erc1155mumbai } from "../constants/erc1155mumbai"
 import { erc4907goerli } from "../constants/erc4907goerli"
 import { erc4907mumbai } from "../constants/erc4907mumbai"
-import {
-    useAccount,
-    useNetwork,
-    useSwitchNetwork,
-} from "wagmi"
-import { useToasts } from "react-toast-notifications"
+import { useAccount, useNetwork, useSwitchNetwork } from "wagmi"
+import { useNotification } from "grand-notification"
 export default function Mintingcomponent() {
     const { address } = useAccount()
-    const { addToast } = useToasts()
-    const { chain} = useNetwork()
+    const { addNotification } = useNotification()
+    const { chain } = useNetwork()
     const [collectiontype, setcollectiontype] = useState(1)
     const [chainnow, setchainnow] = useState("")
     const [messagejson, setMessagejson] = useState("")
-    const {switchNetwork } = useSwitchNetwork()
+    const { switchNetwork } = useSwitchNetwork()
     useEffect(() => {
         if (collectiontype == 1) {
             pullerc721Json(erc721goerli)
@@ -91,7 +87,17 @@ export default function Mintingcomponent() {
             }
         }
     }, [chain])
-    useEffect(() => {}, [])
+    function connectWalletNotification() {
+        addNotification(
+            "Please Connect Wallet & Choose Right Network Before Proceed!",
+            "error",
+            4000
+        )
+    }
+    useEffect(() => {
+        console.log(1)
+        connectWalletNotification()
+    }, [])
     let displayData
     async function pullerc1155Json(e) {
         displayData = await e.map(function (msg) {
@@ -179,11 +185,7 @@ export default function Mintingcomponent() {
         })
         setMessagejson(displayData)
     }
-    function connectWalletNotification() {
-        addToast("Please Connect Wallet & Choose Right Network Before Proceed!", {
-            appearance: "warning",
-        })
-    }
+
     function refreshPage() {
         window.location.reload(false)
     }

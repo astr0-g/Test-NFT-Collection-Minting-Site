@@ -10,10 +10,10 @@ import {
     useWaitForTransaction,
 } from "wagmi"
 import { ethers } from "ethers"
-import { useToasts } from "react-toast-notifications"
+import { useNotification } from "grand-notification"
 export default function ERC1155MintButton(props) {
     const [mintCountdata, setmintCountdata] = useState(0)
-    const { addToast } = useToasts()
+    const { addNotification } = useNotification()
     const { address } = useAccount()
     const { data: mintCount } = useContractRead({
         addressOrName: props.contractaddress,
@@ -49,24 +49,24 @@ export default function ERC1155MintButton(props) {
     })
     useEffect(() => {
         if (minterror) {
-            addToast("Transaction error...", { appearance: "error" })
+            addNotification("Transaction error...", "error",4000)
         }
     }, [minterror])
     useEffect(() => {
         if (mintisLoading) {
-            addToast("minting...", { appearance: "success" })
+            addNotification("minting...", "success",4000)
         }
     }, [mintisLoading])
     useEffect(() => {
         if (mintisSuccess) {
-            addToast("minted successful!", { appearance: "success" })
+            addNotification("minted successful!", "success",4000)
         }
     }, [mintisSuccess])
     function connectwalletnotice() {
-        addToast("Please connect wallet", { appearance: "error" })
+        addNotification("Please connect wallet", "error",4000)
     }
     function mxmintnum() {
-        addToast("You have exceed the maximum mint", { appearance: "error" })
+        addNotification("You have exceed the maximum mint", "error",4000)
     }
     return (
         <div>

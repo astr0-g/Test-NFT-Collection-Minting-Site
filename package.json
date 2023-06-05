@@ -20,6 +20,7 @@
         "dotenv": "^16.0.2",
         "ether": "^0.0.9",
         "ethers": "^5.7.1",
+        "grand-notification": "^1.0.8",
         "magic-sdk": "^9.0.0",
         "mine": "^0.1.0",
         "moralis": "1.11.0",

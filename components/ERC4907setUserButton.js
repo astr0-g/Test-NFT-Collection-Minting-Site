@@ -8,7 +8,7 @@ import {
     useContractWrite,
     useWaitForTransaction,
 } from "wagmi"
-import { useToasts } from "react-toast-notifications"
+import { useNotification } from "grand-notification"
 export default function ERC4907setUserButton(props) {
     const [ready, setready] = useState(0)
     const [rentalToAddress, setRentalToAddress] = useState("")
@@ -18,7 +18,7 @@ export default function ERC4907setUserButton(props) {
     const [rentable, setrentable] = useState(Boolean)
     const [totalowned, settotalowned] = useState(0)
     const [day, setday] = useState("")
-    const { addToast } = useToasts()
+    const { addNotification } = useNotification()
     const { address } = useAccount()
     const { data: walletOfOwner } = useContractRead({
         addressOrName: props.contractaddress,
@@ -82,21 +82,21 @@ export default function ERC4907setUserButton(props) {
     })
     useEffect(() => {
         if (rentouterror) {
-            addToast("Transaction error...", { appearance: "error" })
+            addNotification("Transaction error...", "error",4000)
         }
     }, [rentouterror])
     useEffect(() => {
         if (rentoutisLoading) {
-            addToast("renting out...", { appearance: "success" })
+            addNotification("renting out...", "success",4000)
         }
     }, [rentoutisLoading])
     useEffect(() => {
         if (rentoutisSuccess) {
-            addToast("rent out successful!", { appearance: "success" })
+            addNotification("rent out successful!", "success",4000)
         }
     }, [rentoutisSuccess])
     function connectwalletnotice() {
-        addToast("Please connect wallet", { appearance: "error" })
+        addNotification("Please connect wallet", "error",4000)
     }
 
     return (

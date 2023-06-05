@@ -10,13 +10,13 @@ import {
     useWaitForTransaction,
 } from "wagmi"
 import { ethers } from "ethers"
-import { useToasts } from "react-toast-notifications"
+import { useNotification } from "grand-notification"
 export default function ERC721MintButton(props) {
     const [price, setprice] = useState(0)
     const [value, setvalue] = useState(0)
     const [mintNum, setmintNum] = useState(0)
     const [mintCountdata, setmintCountdata] = useState(0)
-    const { addToast } = useToasts()
+    const { addNotification } = useNotification()
     const { address } = useAccount()
     const { data: mintCount } = useContractRead({
         addressOrName: props.contractaddress,
@@ -53,35 +53,35 @@ export default function ERC721MintButton(props) {
     })
     useEffect(() => {
         if (minterror) {
-            addToast("Transaction error...", { appearance: "error" })
+            addNotification("Transaction error...", "error",4000)
         }
     }, [minterror])
     useEffect(() => {
         if (mintisLoading) {
-            addToast("minting...", { appearance: "success" })
+            addNotification("minting...", "success",4000)
         }
     }, [mintisLoading])
     useEffect(() => {
         if (mintisSuccess) {
-            addToast("minted successful!", { appearance: "success" })
+            addNotification("minted successful!", "success",4000)
         }
     }, [mintisSuccess])
     function connectwalletnotice() {
-        addToast("Please connect wallet", { appearance: "error" })
+        addNotification("Please connect wallet", "error",4000)
     }
     function zeromintnum() {
-        addToast("Mint number could not be 0", { appearance: "error" })
+        addNotification("Mint number could not be 0", "error",4000)
     }
     function increase() {
         if (mintNum + 1 < 3) {
             if (mintNum >= 2 - mintCountdata) {
-                addToast("Exceed Maximum Mint Number", { appearance: "error" })
+                addNotification("Exceed Maximum Mint Number", "error",4000)
             } else {
                 setmintNum(mintNum + 1)
                 if (mintNum == 1) setprice(ethers.utils.parseEther("0.1"))
             }
         } else {
-            addToast("Exceed Maximum Mint Number", { appearance: "error" })
+            addNotification("Exceed Maximum Mint Number", "error",4000)
         }
     }
     function decrease() {
