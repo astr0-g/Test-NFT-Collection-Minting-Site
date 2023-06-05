@@ -90,12 +90,11 @@ export default function Mintingcomponent() {
     function connectWalletNotification() {
         addNotification(
             "Please Connect Wallet & Choose Right Network Before Proceed!",
-            "error",
+            "info",
             4000
         )
     }
     useEffect(() => {
-        console.log(1)
         connectWalletNotification()
     }, [])
     let displayData
