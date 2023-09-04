@@ -8,10 +8,13 @@ import ERC4907Mintednumber from "./ERC4907Mintednumber"
 import ERC4907setUserButton from "./ERC4907setUserButton"
 import { erc721mumbai } from "../constants/erc721mumbai"
 import { erc721goerli } from "../constants/erc721goerli"
+import { erc721sepolia } from "../constants/erc721sepolia"
 import { erc1155goerli } from "../constants/erc1155goerli"
 import { erc1155mumbai } from "../constants/erc1155mumbai"
+import { erc1155sepolia } from "../constants/erc1155sepolia"
 import { erc4907goerli } from "../constants/erc4907goerli"
 import { erc4907mumbai } from "../constants/erc4907mumbai"
+import { erc4907sepolia } from "../constants/erc4907sepolia"
 import { useAccount, useNetwork, useSwitchNetwork } from "wagmi"
 import { useNotification } from "grand-notification"
 export default function Mintingcomponent() {
@@ -24,13 +27,13 @@ export default function Mintingcomponent() {
     const { switchNetwork } = useSwitchNetwork()
     useEffect(() => {
         if (collectiontype == 1) {
-            pullerc721Json(erc721goerli)
+            pullerc721Json(erc721sepolia)
         }
         if (collectiontype == 2) {
-            pullerc1155Json(erc1155goerli)
+            pullerc1155Json(erc721sepolia)
         }
         if (collectiontype == 3) {
-            pullerc4907Json(erc4907goerli)
+            pullerc4907Json(erc721sepolia)
         }
     }, [])
     useEffect(() => {
@@ -45,8 +48,7 @@ export default function Mintingcomponent() {
                 if (collectiontype == 3) {
                     pullerc4907Json(erc4907goerli)
                 }
-            }
-            if (chain["id"] == 80001) {
+            } else if (chain["id"] == 80001) {
                 if (collectiontype == 1) {
                     pullerc721Json(erc721mumbai)
                 }
@@ -55,6 +57,16 @@ export default function Mintingcomponent() {
                 }
                 if (collectiontype == 3) {
                     pullerc4907Json(erc4907mumbai)
+                }
+            } else if (chain["id"] == 11155111) {
+                if (collectiontype == 1) {
+                    pullerc721Json(erc721sepolia)
+                }
+                if (collectiontype == 2) {
+                    pullerc1155Json(erc721sepolia)
+                }
+                if (collectiontype == 3) {
+                    pullerc4907Json(erc721sepolia)
                 }
             }
         }
@@ -73,8 +85,7 @@ export default function Mintingcomponent() {
                     pullerc4907Json(erc4907goerli)
                 }
                 // console.log(1)
-            }
-            if (chain["id"] == 80001) {
+            } else if (chain["id"] == 80001) {
                 if (collectiontype == 1) {
                     pullerc721Json(erc721mumbai)
                 }
@@ -83,6 +94,16 @@ export default function Mintingcomponent() {
                 }
                 if (collectiontype == 3) {
                     pullerc4907Json(erc4907mumbai)
+                }
+            } else if (chain["id"] == 11155111) {
+                if (collectiontype == 1) {
+                    pullerc721Json(erc721sepolia)
+                }
+                if (collectiontype == 2) {
+                    pullerc1155Json(erc721sepolia)
+                }
+                if (collectiontype == 3) {
+                    pullerc4907Json(erc721sepolia)
                 }
             }
         }
@@ -197,8 +218,11 @@ export default function Mintingcomponent() {
             if (chain["id"] == 80001) {
                 pullerc4907Json(erc4907mumbai)
             }
+            if (chain["id"] == 11155111) {
+                pullerc4907Json(erc4907sepolia)
+            }
         } else {
-            pullerc4907Json(erc4907goerli)
+            pullerc4907Json(erc721sepolia)
         }
     }
     function viewerc1155() {
@@ -210,8 +234,11 @@ export default function Mintingcomponent() {
             if (chain["id"] == 80001) {
                 pullerc1155Json(erc1155mumbai)
             }
+            if (chain["id"] == 11155111) {
+                pullerc1155Json(erc1155sepolia)
+            }
         } else {
-            pullerc1155Json(erc1155goerli)
+            pullerc4907Json(erc721sepolia)
         }
     }
     function viewerc721() {
@@ -223,8 +250,11 @@ export default function Mintingcomponent() {
             if (chain["id"] == 80001) {
                 pullerc721Json(erc721mumbai)
             }
+            if (chain["id"] == 11155111) {
+                pullerc4907Json(erc721sepolia)
+            }
         } else {
-            pullerc721Json(erc721goerli)
+            pullerc4907Json(erc721sepolia)
         }
     }
     return (

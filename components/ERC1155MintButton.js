@@ -36,7 +36,7 @@ export default function ERC1155MintButton(props) {
         functionName: "mint",
         overrides: {
             from: props.address,
-            value: ethers.utils.parseEther("0.01"),
+            value: ethers.utils.parseEther("0.1"),
         },
     })
     const { data: mintresults, write: mint } = useContractWrite(config)
@@ -49,24 +49,24 @@ export default function ERC1155MintButton(props) {
     })
     useEffect(() => {
         if (minterror) {
-            addNotification("Transaction error...", "error",4000)
+            addNotification("Transaction error...", "error", 4000)
         }
     }, [minterror])
     useEffect(() => {
         if (mintisLoading) {
-            addNotification("minting...", "success",4000)
+            addNotification("minting...", "success", 4000)
         }
     }, [mintisLoading])
     useEffect(() => {
         if (mintisSuccess) {
-            addNotification("minted successful!", "success",4000)
+            addNotification("minted successful!", "success", 4000)
         }
     }, [mintisSuccess])
     function connectwalletnotice() {
-        addNotification("Please connect wallet", "error",4000)
+        addNotification("Please connect wallet", "error", 4000)
     }
     function mxmintnum() {
-        addNotification("You have exceed the maximum mint", "error",4000)
+        addNotification("You have exceed the maximum mint", "error", 4000)
     }
     return (
         <div>
@@ -77,7 +77,7 @@ export default function ERC1155MintButton(props) {
                     <div className="mt-2" />
                     {mintCountdata != 2 ? (
                         <button className={styles.mintButton} onClick={mint}>
-                            You will pay 0.01 {props.symbol} to mint one
+                            You will pay 0.1 {props.symbol} to mint one
                         </button>
                     ) : (
                         <button className={styles.mintButton} onClick={mxmintnum}>
