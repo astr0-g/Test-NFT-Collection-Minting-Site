@@ -23,6 +23,7 @@ import {
 const { chains, provider } = configureChains(
     [chain.sepolia, chain.goerli, chain.polygonMumbai],
     [
+        publicProvider(),
         alchemyProvider({ apiKey: process.env.NEXT_PUBLIC_ALCHEMYAPIKEY1, priority: 0 }),
         alchemyProvider({ apiKey: process.env.NEXT_PUBLIC_ALCHEMYAPIKEY2, priority: 0 }),
         alchemyProvider({ apiKey: process.env.NEXT_PUBLIC_ALCHEMYAPIKEY3, priority: 0 }),
