@@ -6,6 +6,7 @@ import { alchemyProvider } from "wagmi/providers/alchemy"
 import { RainbowKitProvider, darkTheme } from "@rainbow-me/rainbowkit"
 import "@rainbow-me/rainbowkit/styles.css"
 import { connectorsForWallets } from "@rainbow-me/rainbowkit"
+import { jsonRpcProvider } from "wagmi/providers/jsonRpc"
 import { publicProvider } from "wagmi/providers/public"
 import { NotificationProvider } from "grand-notification"
 import {
@@ -23,7 +24,12 @@ import {
 const { chains, provider } = configureChains(
     [chain.sepolia, chain.goerli, chain.polygonMumbai],
     [
-        publicProvider(),
+        // publicProvider(),
+        jsonRpcProvider({
+            rpc: (chain) => ({
+                http: process.env.NEXT_PUBLIC_SOPOLIAURL,
+            }),
+        }),
         alchemyProvider({ apiKey: process.env.NEXT_PUBLIC_ALCHEMYAPIKEY1, priority: 0 }),
         alchemyProvider({ apiKey: process.env.NEXT_PUBLIC_ALCHEMYAPIKEY2, priority: 0 }),
         alchemyProvider({ apiKey: process.env.NEXT_PUBLIC_ALCHEMYAPIKEY3, priority: 0 }),
