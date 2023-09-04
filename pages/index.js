@@ -7,7 +7,7 @@ export default function Home() {
         <div>
             <Head>
                 <title>Testnet Minting Site</title>
-                <meta name="description" content="Goerli testnet minting site" />
+                <meta name="description" content="Ethereum testnet minting site" />
                 <link rel="icon" href="/Cjdowner-Cryptocurrency-Flat-Ethereum-ETH.ico" />
             </Head>
             <Header />
