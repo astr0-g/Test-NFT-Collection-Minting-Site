@@ -15,6 +15,9 @@ export default function Welcome() {
             if (chain["id"] == 80001) {
                 setchainnow(chain["name"])
             }
+            if (chain["id"] == 11155111) {
+                setchainnow(chain["name"])
+            }
         }
     }, [chain])
 
