@@ -6,7 +6,7 @@ import { useNetwork } from "wagmi"
 export default function Welcome() {
     const { chain } = useNetwork()
 
-    const [chainnow, setchainnow] = useState("Goerli")
+    const [chainnow, setchainnow] = useState("Sepolia")
     useEffect(() => {
         if (chain) {
             if (chain["id"] == 5) {
