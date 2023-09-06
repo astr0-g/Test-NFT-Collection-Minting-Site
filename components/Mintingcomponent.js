@@ -30,10 +30,10 @@ export default function Mintingcomponent() {
             pullerc721Json(erc721sepolia)
         }
         if (collectiontype == 2) {
-            pullerc1155Json(erc721sepolia)
+            pullerc1155Json(erc1155sepolia)
         }
         if (collectiontype == 3) {
-            pullerc4907Json(erc721sepolia)
+            pullerc4907Json(erc4907sepolia)
         }
     }, [])
     useEffect(() => {
@@ -63,10 +63,10 @@ export default function Mintingcomponent() {
                     pullerc721Json(erc721sepolia)
                 }
                 if (collectiontype == 2) {
-                    pullerc1155Json(erc721sepolia)
+                    pullerc1155Json(erc1155sepolia)
                 }
                 if (collectiontype == 3) {
-                    pullerc4907Json(erc721sepolia)
+                    pullerc4907Json(erc4907sepolia)
                 }
             }
         }
@@ -100,10 +100,10 @@ export default function Mintingcomponent() {
                     pullerc721Json(erc721sepolia)
                 }
                 if (collectiontype == 2) {
-                    pullerc1155Json(erc721sepolia)
+                    pullerc1155Json(erc1155sepolia)
                 }
                 if (collectiontype == 3) {
-                    pullerc4907Json(erc721sepolia)
+                    pullerc4907Json(erc4907sepolia)
                 }
             }
         }
