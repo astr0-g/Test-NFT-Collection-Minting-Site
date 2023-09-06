@@ -78,7 +78,7 @@ export default function ERC721MintButton(props) {
                 addNotification("Exceed Maximum Mint Number", "error",4000)
             } else {
                 setmintNum(mintNum + 1)
-                if (mintNum == 1) setprice(ethers.utils.parseEther("0.01"))
+                if (mintNum == 1) setprice(ethers.utils.parseEther("0.1"))
             }
         } else {
             addNotification("Exceed Maximum Mint Number", "error",4000)
@@ -87,14 +87,14 @@ export default function ERC721MintButton(props) {
     function decrease() {
         if (mintNum > 0) {
             setmintNum(mintNum - 1)
-            setprice(ethers.utils.parseEther("0.01"))
+            setprice(ethers.utils.parseEther("0.1"))
         }
     }
     useEffect(() => {
         if (mintNum) {
             if (mintNum == 1) {
-                setprice(ethers.utils.parseEther("0.01"))
-                setvalue("0.01")
+                setprice(ethers.utils.parseEther("0.1"))
+                setvalue("0.1")
             }
             if (mintNum == 2) {
                 setprice(ethers.utils.parseEther("0.02"))
