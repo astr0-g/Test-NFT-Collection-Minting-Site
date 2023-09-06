@@ -1,7 +1,8 @@
 import Mintingcomponent from "./Mintingcomponent"
 import Partnerscomponent from "./Partnerscomponent"
-import { useState, useEffect } from "react"
+import { useState, useEffect, useRef } from "react"
 import { useNetwork } from "wagmi"
+import Typist from "react-typist"
 
 export default function Welcome() {
     const { chain } = useNetwork()
@@ -29,13 +30,18 @@ export default function Welcome() {
                         <h1 className="mt-5 font-Prompt lg:text-8xl md:text-6xl sm:text-4xl font-bold text-white">
                             DISCLAIMER
                         </h1>
-                        <h1 className="mt-5 ml-11 mr-11 font-Prompt lg:text-3xl md:text-2xl sm:text-xl font-bold text-white">
-                            This is a minting site for mint test NFT from variety of collection
-                            that helps decentralized Finance, NFT Finance, social Finance, and
-                            other kinds of Dapps building on Testnet, please choose the diresed
-                            testnet after connecting your wallet. This is a non-profit website. If
-                            this involves your company's copyright issues, please contact me and I
-                            will delete it immediately.
+                        <h1
+                            id="content"
+                            className="mt-5 ml-11 mr-11 font-Prompt lg:text-3xl md:text-2xl sm:text-xl font-bold text-white"
+                        >
+                            <Typist>
+                                This is a minting site for mint test NFT from variety of collection
+                                that helps decentralized Finance, NFT Finance, social Finance, and
+                                other kinds of Dapps building on Testnet, please choose the diresed
+                                testnet after connecting your wallet. This is a non-profit website.
+                                If this involves your company's copyright issues, please contact me
+                                and I will delete it immediately.
+                            </Typist>
                         </h1>
                         <h1 className="font-Prompt lg:text-4xl md:text-3xl sm:text-2xl font-bold text-white"></h1>
 
@@ -46,7 +52,7 @@ export default function Welcome() {
                     <div className="grid items-center justify-items-center bg-no-repeat bg-cover  relative">
                         <div className="mt-8 flex items-center">
                             <h1 className="lg:text-4xl sm:text-xl font-bold text-white text-center">
-                                MINT TEST NFT on {chainnow}
+                                Mint Test NFT on {chainnow} Testnet
                             </h1>
                         </div>
                     </div>

@@ -31,6 +31,7 @@
         "react-icons": "^4.7.1",
         "react-moralis": "^1.4.2",
         "react-toast-notifications": "^2.5.1",
+        "react-typist": "^2.0.5",
         "requests": "^0.3.0",
         "siwe": "^1.1.6",
         "styled-components": "^5.3.6",
