@@ -23,12 +23,6 @@ export default function Home() {
           gtag('config', '${process.env.NEXT_PUBLIC_GOOGLE_ANALYTICS_ID}');
         `}
             </Script>
-            <Script
-                src={process.env.NEXT_PUBLIC_GOOGLE_ADS}
-                crossOrigin="anonymous"
-                strategy="lazyOnload"
-            />
-
             <Header />
             <Welcome />
             <Bottom />
