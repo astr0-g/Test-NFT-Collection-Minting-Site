@@ -37,7 +37,7 @@ export default function Welcome() {
                             <Typist>
                                 This is a minting site for mint test NFT from variety of collection
                                 that helps decentralized Finance, NFT Finance, social Finance, and
-                                other kinds of Dapps building on Testnet, please choose the diresed
+                                other kinds of Dapps building on Testnet, please choose the desired
                                 testnet after connecting your wallet. This is a non-profit website.
                                 If this involves your company's copyright issues, please contact me
                                 and I will delete it immediately.
